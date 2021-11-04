@@ -15,13 +15,13 @@ public class Task1 {
                 if (sc.hasNextDouble()) {
                     sumMoney = sc.nextDouble();
                     if (sumMoney >= 0) {
-                        if ((sumMoney > 0) && (sumMoney < 100)) {
+                        if (sumMoney > 0 && sumMoney < 100) {
                             sumMoney = sumMoney - (sumMoney * 0.05);
                             System.out.println("Ваша сумма с 5% скидкой будет: " + sumMoney);
-                        } else if ((sumMoney >= 100) && (sumMoney < 200)) {
+                        } else if (sumMoney >= 100 && sumMoney < 200) {
                             sumMoney = sumMoney - (sumMoney * 0.07);
                             System.out.println("Ваша сумма с 7% скидкой будет: " + sumMoney);
-                        } else if ((sumMoney >= 200) && (sumMoney < 300)) {
+                        } else if (sumMoney >= 200 && sumMoney < 300) {
                             if (age > 18) {
                                 sumMoney = sumMoney - (sumMoney * (0.12 + 0.04));
                                 System.out.println("Ваша сумма сo специальной скидкой будет: " + sumMoney);
@@ -29,7 +29,7 @@ public class Task1 {
                                 sumMoney = sumMoney - (sumMoney * (0.12 - 0.03));
                                 System.out.println("Ваша сумма с небольшой скидкой будет: " + sumMoney);
                             }
-                        } else if ((sumMoney >= 300) && (sumMoney < 400)) {
+                        } else if (sumMoney >= 300 && sumMoney < 400) {
                             sumMoney = sumMoney - (sumMoney * 0.15);
                             System.out.println("Ваша сумма с 15% скидкой будет: " + sumMoney);
                         } else if (sumMoney >= 400) {
