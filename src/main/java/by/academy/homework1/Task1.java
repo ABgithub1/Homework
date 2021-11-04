@@ -11,7 +11,7 @@ public class Task1 {
             age = sc.nextInt();
             if (age > 0 && age < 130) {
                 System.out.println("Введите Cумму");
-                double sumMoney = 0;
+                double sumMoney;
                 if (sc.hasNextDouble()) {
                     sumMoney = sc.nextDouble();
                     if (sumMoney >= 0) {
