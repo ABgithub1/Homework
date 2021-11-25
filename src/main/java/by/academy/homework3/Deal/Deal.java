@@ -8,13 +8,13 @@ public class Deal {
     public Deal() {
     }
 
-    public Deal(User seller, User buyer, Product[] prodInCart) {
+    protected Deal(User seller, User buyer, Product[] prodInCart) {
         this.seller = seller;
         this.buyer = buyer;
         this.prodInCart = prodInCart;
     }
 
-    public double getFullPrice() {
+    protected double getFullPrice() {
         double sum = 0;
         for (Product product : prodInCart)
             if (product != null) {
@@ -24,7 +24,18 @@ public class Deal {
         return sum;
     }
 
-    public void printBill() {
+    protected void increaseDecreaseMoney() {
+        if (buyer.getMoney() >= getFullPrice()) {
+            buyer.setMoney(buyer.getMoney() - getFullPrice());
+            seller.setMoney(seller.getMoney() + getFullPrice());
+        } else {
+            System.err.println("Недостаточно средств. У вас в наличии " + buyer.getMoney());
+            return;
+        }
+
+    }
+
+    protected void printBill() {
         System.out.println("Число позиций: " + prodInCart.length);
         System.out.println();
         for (Product product : prodInCart) {
@@ -32,15 +43,7 @@ public class Deal {
         }
         System.out.println("_______________________________________");
         System.out.println("К оплате: " + getFullPrice() + " рублей");
-
-        double buyerMoney = buyer.getMoney() - getFullPrice();
-        if (buyerMoney >= 0) {
-            System.out.println("Покупка состоялась, остаток " + buyerMoney);
-            System.out.println();
-        } else {
-            System.err.println("Недостаточно средств");
-            return;
-        }
+        System.out.println("Покупка состоялась, остаток: " + buyer.getMoney());
     }
 
 

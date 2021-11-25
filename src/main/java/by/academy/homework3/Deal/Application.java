@@ -32,6 +32,7 @@ public class Application {
         input(prodStorage, shoppingCart);
         Deal purchase = new Deal(seller, buyer, shoppingCart.prodInCart);
         purchase.getFullPrice();
+        purchase.increaseDecreaseMoney();
         purchase.printBill();
         sc1.close();
     }
@@ -107,7 +108,7 @@ public class Application {
                     i++;
                     break;
                 default:
-                    System.out.println("Ошибка ввода, повторите попытку");
+                    System.err.println("Ошибка ввода, повторите попытку");
             }
         }
     }
