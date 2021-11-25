@@ -43,7 +43,7 @@ public class Deal {
         }
         System.out.println("_______________________________________");
         System.out.println("К оплате: " + getFullPrice() + " рублей");
-        System.out.println("Покупка состоялась, остаток: " + buyer.getMoney());
+        System.out.println("Остаток: " + buyer.getMoney());
     }
 
 
