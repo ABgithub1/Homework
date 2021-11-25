@@ -30,9 +30,7 @@ public class Deal {
             seller.setMoney(seller.getMoney() + getFullPrice());
         } else {
             System.err.println("Недостаточно средств. У вас в наличии " + buyer.getMoney());
-            return;
         }
-
     }
 
     protected void printBill() {
