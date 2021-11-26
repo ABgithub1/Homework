@@ -12,7 +12,7 @@ public class Milk extends Product {
     }
 
     public double getProdDiscount() {
-        if (quantity >= 5 && quantity < 7) {
+        if (quantity >= 5 && quantity <= 7) {
             return 0.9;
         } else if (quantity >= 10) {
             return 0.7;
@@ -26,6 +26,11 @@ public class Milk extends Product {
 
     public void setVolume(double volume) {
         this.volume = volume;
+    }
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
     }
 
     @Override

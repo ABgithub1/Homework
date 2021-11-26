@@ -1,5 +1,7 @@
 package by.academy.homework3.Deal;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Scanner;
 
 public class Application {
@@ -11,12 +13,12 @@ public class Application {
 
     protected static Scanner sc1 = new Scanner(System.in);
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ParseException, CloneNotSupportedException {
+        System.out.println("Добро пожаловать в магазин !");
 
         User seller = new User("Продавец", 0);
         User buyer = new User("Покупатель", 100);
 
-        System.out.println("Добро пожаловать в магазин !");
         validateInfo(buyer);
 
         System.out.println("Введите сколько товара Вы планируете положить в корзину");
@@ -27,9 +29,12 @@ public class Application {
             return;
         }
         ProdStorage prodStorage = new ProdStorage();
+        ProdStorage.createProd(prodStorage.products);
+
         ShoppingCart shoppingCart = new ShoppingCart();
 
         input(prodStorage, shoppingCart);
+
         Deal purchase = new Deal(seller, buyer, shoppingCart.prodInCart);
         purchase.getFullPrice();
         purchase.increaseDecreaseMoney();
@@ -37,9 +42,11 @@ public class Application {
         sc1.close();
     }
 
-    protected static void validateInfo(User buyer) {
+    protected static void validateInfo(User buyer) throws ParseException {
         Validator dateOfBirth = new DataValidator();
         Validator phone = new BelPhoneValidator();
+
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
         Validator email = new EmailValidator();
 
         System.out.println("Введите дату рождения");
@@ -48,8 +55,8 @@ public class Application {
             if (!dateOfBirth.isValid(uDate)) {
                 System.err.println("Ошибка, повторите ввод");
             } else {
-
                 buyer.setDateOfBirth(uDate);
+                System.out.println(buyer.getDateOfBirth());
             }
         } while (buyer.getDateOfBirth() == null);
 
@@ -74,18 +81,19 @@ public class Application {
         } while (buyer.getEmail() == null);
     }
 
-    protected static void input(ProdStorage prodStorage, ShoppingCart shoppingCart) {
+    protected static void input(ProdStorage prodStorage, ShoppingCart shoppingCart) throws CloneNotSupportedException {
+
         ProdStorage pr = new ProdStorage();
         Scanner sc = new Scanner(System.in);
-        for (int i = 0; i < quantityOfProd; ) {
 
+        for (int i = 0; i < quantityOfProd; ) {
             System.out.println();
             System.out.println("Введите код товара или введите '00' чтобы удалить товар ");
-            System.out.println("Хлеб светлый — 01| Хлеб тёмный — 02| Сыр чеддер — 03| Молоко объемом 0.5 — 04 |");
+            System.out.println("Хлеб тёмный — 01| Хлеб светлый — 02| Сыр чеддер — 03| Молоко объемом 0.5 — 04 |");
             String num = sc.nextLine();
             switch (num) {
                 case "00":
-                    ShoppingCart.deleteProd(shoppingCart.prodInCart, prodStorage.products);
+                    ShoppingCart.deleteProd(shoppingCart.prodInCart);
                     i--;
                     break;
 
@@ -103,6 +111,7 @@ public class Application {
                     ShoppingCart.addCheeseToShCart(shoppingCart.prodInCart, prodStorage.products);
                     i++;
                     break;
+
                 case "04":
                     ShoppingCart.addMilkToShCart(shoppingCart.prodInCart, prodStorage.products);
                     i++;

@@ -1,6 +1,6 @@
 package by.academy.homework3.Deal;
 
-public class Product {
+public class Product implements Cloneable {
     protected String prodType;
     protected double quantity;
     protected double price;
@@ -56,5 +56,10 @@ public class Product {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
     }
 }

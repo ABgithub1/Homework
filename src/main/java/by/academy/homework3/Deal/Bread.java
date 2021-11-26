@@ -1,6 +1,6 @@
 package by.academy.homework3.Deal;
 
-public class Bread extends Product {
+public class Bread extends Product implements Cloneable {
     protected String breadType; // Светлый / Тёмный
 
     public Bread() {
@@ -12,7 +12,7 @@ public class Bread extends Product {
     }
 
     public double getProdDiscount() {
-        if (quantity > 20) {
+        if (quantity > 10) {
             return 0.6;
         }
         return 1;
@@ -24,6 +24,11 @@ public class Bread extends Product {
 
     public void setBreadType(String breadType) {
         this.breadType = breadType;
+    }
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
     }
 
     @Override

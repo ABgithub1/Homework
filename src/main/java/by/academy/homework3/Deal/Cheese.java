@@ -27,6 +27,11 @@ public class Cheese extends Product {
     }
 
     @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
+
+    @Override
     public String toString() {
         return "Cheese{" +
                 "cheeseType='" + cheeseType + '\'' +
