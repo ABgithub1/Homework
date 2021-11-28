@@ -3,7 +3,7 @@ package by.academy.homework3.Deal;
 import java.text.ParseException;
 import java.util.Scanner;
 
-// этот....
+
 public class Application {
     private static int quantityOfProd = 0;
 
