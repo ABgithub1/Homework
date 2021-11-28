@@ -1,14 +1,11 @@
 package by.academy.homework3.Deal;
 
-import java.util.Date;
-
 public class User {
     private String name;
     private double money;
     private String email;
     private String phone;
     private String dateOfBirth;
-    private Date userDateOfBirth; //
 
     public User() {
 
@@ -57,14 +54,6 @@ public class User {
 
     public void setDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
-    }
-
-    public Date getUserDateOfBirth() {
-        return userDateOfBirth;
-    }
-
-    public void setUserDateOfBirth(Date userDateOfBirth) {
-        this.userDateOfBirth = userDateOfBirth;
     }
 
     @Override
