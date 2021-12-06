@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 public class DateMy {
 
-    static LocalDate localDate;
+    private static LocalDate localDate;
 
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
