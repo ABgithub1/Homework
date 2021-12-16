@@ -2,7 +2,7 @@ package by.academy.homework5.Ex4;
 
 public class Student {
     private String name;
-    public int mark;
+    private int mark;
 
     public Student() {
     }
