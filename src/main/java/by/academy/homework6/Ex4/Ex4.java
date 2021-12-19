@@ -24,7 +24,7 @@ public class Ex4 {
                         "/homework6/Ex4/Ex4Folder/" + i + ".txt");
                 fileOutputStream.write(buffer);
                 FileWriter fw = new FileWriter("src/main/java/by/academy/homework6/Ex4/Result.txt", true);
-                fw.write("Файл " + i + " , Размер файла: " + buffer.length + "\n");
+                fw.write("Файл " + i + ", Размер файла: " + buffer.length + "\n");
                 fw.close();
                 inputStream.close();
                 fileOutputStream.close();
@@ -41,6 +41,7 @@ public class Ex4 {
         while ((ch = reader.read()) != -1) {
             sb.append((char) ch);
         }
+        reader.close();
         return sb.toString();
     }
 
