@@ -2,19 +2,26 @@ package by.academy.homework7.Ex2;
 
 import java.util.Arrays;
 
-public class ClassAnalyzer {
+public class ClassAnalyzerTest {
     public static void analyzeClass(Object o) {
-        Class cl = o.getClass();
+        Class<User> cl = User.class;
         System.out.println("Имя класса: " + cl);
         System.out.println("Поля класса: " + Arrays.toString(cl.getDeclaredFields()));
         System.out.println("Родительский класс: " + cl.getSuperclass());
+        System.out.println("1 Метод класа::");
         System.out.println("Методы класса: " + Arrays.toString(cl.getDeclaredMethods()));
         System.out.println("Конструкторы класса: " + Arrays.toString(cl.getConstructors()));
         System.out.println();
-        System.out.println(cl);
-        System.out.println(Arrays.toString(cl.getFields()));
-        System.out.println(Arrays.toString(cl.getConstructors()));
-        System.out.println(Arrays.toString(cl.getMethods()));
+        System.out.println("Имя класса: " + cl);
+        System.out.println("Поля класса: " + Arrays.toString(cl.getFields()));
+        System.out.println("Конструкторы класса: " + Arrays.toString(cl.getConstructors()));
+        System.out.println("Методы класса: " + Arrays.toString(cl.getMethods()));
+
+        try {
+            System.out.println(cl.getMethod("printUserInfo"));
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        }
 
     }
 
